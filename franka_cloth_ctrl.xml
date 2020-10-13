@@ -1,0 +1,17 @@
+<!--
+# Copyright 2020 (c) Aalto University - All Rights Reserved
+# Author: Julius Hietala <julius.hietala@aalto.fi>
+#
+-->
+
+<mujoco>
+
+<include file="franka_cloth_shared.xml"/>
+
+<equality>
+    <weld body1="end_effector_body" body2="B8_0" solimp="0.9 0.95 0.001" solref="0.02 1"/>
+</equality>
+
+<include file='assets/actuator0.xml'/>
+
+</mujoco>

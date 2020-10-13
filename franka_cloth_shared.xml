@@ -1,0 +1,71 @@
+<!--
+# Copyright 2020 (c) Aalto University - All Rights Reserved
+# Author: Julius Hietala <julius.hietala@aalto.fi>
+#
+-->
+
+<!-- ORIGINAL COPYRIGHT=================================================
+    Copyright 2018 Vikash Kumar 
+    Model   :: Franka (MuJoCoV2.0)
+    Author  :: Vikash Kumar (vikashplus@gmail.com)
+    source  :: https://github.com/vikashplus/franka_sim
+    License :: Under Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+====================================================== -->
+
+<mujoco model="franka_panda v200">
+    <size nconmax="4000" njmax="8000" nstack="1000000"/>
+    <include file="assets/basic_scene.xml"/>
+    <include file="assets/assets.xml"/>
+    <compiler meshdir="" texturedir=""/>
+    <option timestep="0.001" solver="Newton">
+		<flag warmstart="enable"></flag>
+	</option>
+
+    <sensor>
+		<jointvel name="panda0_joint1_sensor" joint="panda0_joint1" />
+        <jointvel name="panda0_joint2_sensor" joint="panda0_joint2" />
+        <jointvel name="panda0_joint3_sensor" joint="panda0_joint3" />
+        <jointvel name="panda0_joint4_sensor" joint="panda0_joint4" />
+        <jointvel name="panda0_joint5_sensor" joint="panda0_joint5" />
+        <jointvel name="panda0_joint6_sensor" joint="panda0_joint6" />
+        <jointvel name="panda0_joint7_sensor" joint="panda0_joint7" />
+	</sensor>
+
+    <!--<equality>
+      <weld body1="vive_controller" body2="end_effector_body" solimp="0.9 0.95 0.001" solref="0.02 1"/>
+      <weld body1="end_effector_body" body2="B8_0" solimp="0.9 0.95 0.001" solref="0.02 1"/>
+    </equality> -->
+
+
+    <worldbody>
+        <body mocap="true" name="vive_controller" pos="0 0.09 0.77">
+		<geom conaffinity="0" contype="0" pos="0 0 0" rgba="0 0 1 1" size="0.005 0.005 0.005" type="box"></geom>
+		<site name="robot"/>
+		<geom conaffinity="0" contype="0" pos="0 0 0" rgba="0 0.5 0 0.1" size="1 0.005 0.005" type="box"></geom>
+		<geom conaffinity="0" contype="0" pos="0 0 0" rgba="0 0.5 0 0.1" size="0.005 1 0.001" type="box"></geom>
+		<geom conaffinity="0" contype="0" pos="0 0 0" rgba="0 0.5 0 0.1" size="0.005 0.005 1" type="box"></geom>
+	</body>
+
+        <body name="table" pos="0 0.5 0">
+            <geom type="box" pos="0 0 0" size="0.3 0.3 0.1" />
+        </body>
+
+        
+        <body pos='0.07 0.5 0.11'>
+            <composite type="grid" count="9 9 1" spacing="0.03" flatinertia="0.0001" >
+                        <joint kind="main" damping="0.003" stiffness="0.001"/>
+                        <tendon width="0.001" kind="shear" stiffness="0.001" damping="0.002" />
+                        <skin material="mm" texcoord="true" inflate="0.002" subgrid="2"/>
+                        <geom type="capsule" size="0.004" rgba=".8 .2 .1 1" mass="0.008" friction="1 1 1" />
+            </composite>
+        </body>
+
+        <!-- Robot -->
+        <body pos='0 0 0' euler='0 0 1.57'>
+            <include file="assets/chain0.xml"/>
+        </body>
+
+    </worldbody>
+
+    <!--<include file='assets/teleop_actuator.xml'/> -->
+</mujoco>

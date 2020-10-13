@@ -1,5 +1,10 @@
-<mujocoinclude>
-<!-- =================================================
+<!--
+# Copyright 2020 (c) Aalto University - All Rights Reserved
+# Author: Julius Hietala <julius.hietala@aalto.fi>
+#
+-->
+
+<!-- ORIGINAL COPYRIGHT=================================================
     Copyright 2018 Vikash Kumar 
     Model   :: Franka (MuJoCoV2.0)
     Author  :: Vikash Kumar (vikashplus@gmail.com)
@@ -9,7 +14,8 @@
 
 <!-- Robot limits pulled from https://frankaemika.github.io/docs/control_parameters.html#constants -->
 
-    <body name="panda0_link0" childclass="panda" >
+<mujocoinclude>
+    <body name="panda0_link0" childclass="panda" pos="0 0 0" >
         <geom class="panda_viz" mesh="link0_viz"/>
         <geom class="panda_col" mesh="link0_col" mass="2.91242"/>
         <body name="panda0_link1" pos="0 0 0.333">
@@ -25,15 +31,15 @@
                     <geom class="panda_viz" mesh="link3_viz"/>
                     <geom class="panda_col" mesh="link3_col" mass="2.04104"/>
                     <body name="panda0_link4" pos="0.0825 0 0" quat="0.707107 0.707107 0 0">
-                        <joint name="panda0_joint4" range="-3.0718 -0.4" class="panda_arm"/>
+                        <joint name="panda0_joint4" range="-3.0718 -0.0698" class="panda_arm"/>
                         <geom class="panda_viz" mesh="link4_viz"/>
                         <geom class="panda_col" mesh="link4_col" mass="2.08129"/>
                         <body name="panda0_link5" pos="-0.0825 0.384 0" quat="0.707107 -0.707107 0 0">
                             <joint name="panda0_joint5" range="-2.8973 2.8973" class="panda_forearm"/>
                             <geom class="panda_viz" mesh="link5_viz"/>
                             <geom class="panda_col" mesh="link5_col" mass="3.00049"/>
-                            <body name="panda0_link6" pos="0 0 0" euler='1.57 0 1.57'>
-                                <joint name="panda0_joint6" range="-1.6573 2.1127" class="panda_forearm"/>
+                            <body name="panda0_link6" pos="0 0 0" euler='1.57 0 0'>
+                                <joint name="panda0_joint6" range="-0.0175 3.7525" class="panda_forearm"/>
                                 <!-- <body name="panda0_link6" pos="0 0 0" quat="0.707107 0.707107 0 0"> -->
                                 <!-- <joint name="panda0_joint6" range="-0.0873 3.8223" class="panda_forearm"/> -->
                                 <geom class="panda_viz" mesh="link6_viz"/>
@@ -46,7 +52,9 @@
                                     <geom class="panda_col" mesh="link7_col" mass="0.2"/>
                                     <geom pos="0 0 0.107" quat="0.92388 0 0 -0.382683" class="panda_viz" mesh="hand_viz"/>
                                     <geom pos="0 0 0.107" quat="0.92388 0 0 -0.382683" class="panda_col" mesh="hand_col" mass="0.81909"/>
-                                    <site name='end_effector' pos='0 0 .210' size='0.01' euler='0 0 -0.785398'/>
+                                    <body name="end_effector_body" pos="0 0 0.26">
+                                        <site name="end_effector_site" pos="0 0 0" size="0.01"/>
+                                    </body>
                                     <body name="panda0_leftfinger" pos="0 0 0.1654" quat="0.92388 0 0 -0.382683" childclass='panda_finger'>
                                         <inertial pos="-1.57863e-05 0.0118731 0.0434103" quat="0.705868 0.0310348 -0.0314925 0.706962" mass="0.0927059" diaginertia="6.57134e-05 6.09611e-05 1.09932e-05" />
                                         <joint name="panda0_finger_joint1"  axis="0 1 0" type="slide" range="0 0.04" class="panda_finger"/>

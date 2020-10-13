@@ -1,5 +1,10 @@
-<mujocoinclude>
-<!-- =================================================
+<!--
+# Copyright 2020 (c) Aalto University - All Rights Reserved
+# Author: Julius Hietala <julius.hietala@aalto.fi>
+#
+-->
+
+<!-- ORIGINAL COPYRIGHT=================================================
     Copyright 2018 Vikash Kumar 
     Model   :: Franka (MuJoCoV2.0)
     Author  :: Vikash Kumar (vikashplus@gmail.com)
@@ -7,6 +12,7 @@
     License :: Under Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
 ====================================================== -->
 
+<mujocoinclude>
     <compiler angle="radian"/>
     <!-- <option timestep="0.002" noslip_iterations="20"/> -->
     <option timestep="0.002"/>
@@ -33,6 +39,9 @@
         <mesh name="link7_viz" file="../franka_sim/meshes/visual/link7.stl"/>
         <mesh name="hand_viz" file="../franka_sim/meshes/visual/hand.stl"/>
         <mesh name="finger_viz" file="../franka_sim/meshes/collision/finger.stl" scale='1.75 1.0 1.75'/>
+
+        <texture name="mmc" type="2d" file="../franka_sim/textures/mm2.png"/>
+        <material name="mm" texture="mmc"/>
     </asset>
 
     <default>
