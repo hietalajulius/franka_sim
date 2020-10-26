@@ -22,13 +22,25 @@
 	</option>
 
     <sensor>
-		<jointvel name="panda0_joint1_sensor" joint="panda0_joint1" />
-        <jointvel name="panda0_joint2_sensor" joint="panda0_joint2" />
-        <jointvel name="panda0_joint3_sensor" joint="panda0_joint3" />
-        <jointvel name="panda0_joint4_sensor" joint="panda0_joint4" />
-        <jointvel name="panda0_joint5_sensor" joint="panda0_joint5" />
-        <jointvel name="panda0_joint6_sensor" joint="panda0_joint6" />
-        <jointvel name="panda0_joint7_sensor" joint="panda0_joint7" />
+		<jointvel name="panda0_joint1_vel_sensor" joint="panda0_joint1" />
+        <jointvel name="panda0_joint2_vel_sensor" joint="panda0_joint2" />
+        <jointvel name="panda0_joint3_vel_sensor" joint="panda0_joint3" />
+        <jointvel name="panda0_joint4_vel_sensor" joint="panda0_joint4" />
+        <jointvel name="panda0_joint5_vel_sensor" joint="panda0_joint5" />
+        <jointvel name="panda0_joint6_vel_sensor" joint="panda0_joint6" />
+        <jointvel name="panda0_joint7_vel_sensor" joint="panda0_joint7" />
+
+        <jointpos name="panda0_joint1_pos_sensor" joint="panda0_joint1" />
+        <jointpos name="panda0_joint2_pos_sensor" joint="panda0_joint2" />
+        <jointpos name="panda0_joint3_pos_sensor" joint="panda0_joint3" />
+        <jointpos name="panda0_joint4_pos_sensor" joint="panda0_joint4" />
+        <jointpos name="panda0_joint5_pos_sensor" joint="panda0_joint5" />
+        <jointpos name="panda0_joint6_pos_sensor" joint="panda0_joint6" />
+        <jointpos name="panda0_joint7_pos_sensor" joint="panda0_joint7" />
+
+        <velocimeter name="end_effector_vel_sensor" site="end_effector_site" />
+        <accelerometer name="end_effector_acc_sensor" site="end_effector_site" />
+
 	</sensor>
 
     <!--<equality>
@@ -56,7 +68,7 @@
                         <joint kind="main" damping="0.003" stiffness="0.001"/>
                         <tendon width="0.001" kind="shear" stiffness="0.001" damping="0.002" />
                         <skin material="mm" texcoord="true" inflate="0.002" subgrid="2"/>
-                        <geom type="capsule" size="0.004" rgba=".8 .2 .1 1" mass="0.008" friction="1 1 1" />
+                        <geom type="capsule" size="0.004" rgba=".8 .2 .1 1" mass="0.0008" friction="1 1 1" />
             </composite>
         </body>
 
